@@ -68,11 +68,6 @@ h1, h2, h3, h4, h5, h6 {
     flex: 1 0 auto;
 }
 
-::selection {
-    background: var(--accent-soft);
-    color: var(--accent);
-}
-
 ::-webkit-scrollbar {
     width:  10px;
     height: 10px;
