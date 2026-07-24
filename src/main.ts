@@ -14,6 +14,10 @@ import {
 } from "./lib/header";
 
 import {
+    initScrollTop
+} from "./lib/scrollTop";
+
+import {
     renderHome
 } from "./pages/home";
 
@@ -73,4 +77,6 @@ const router: Router = new Router({
 });
 
 initTheme();
+initScrollTop();
+
 router.start();
