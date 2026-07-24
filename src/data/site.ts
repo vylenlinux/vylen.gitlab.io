@@ -1,7 +1,6 @@
 import {
     Gitlab,
     GitBranch,
-    Download,
 
     type IconNode
 } from "lucide";
@@ -55,11 +54,5 @@ export const footerLinks: FooterLink[] = [
         href: "https://gitlab.com/vylen/ports",
         label: "Ports repository",
         icon: GitBranch
-    },
-
-    {
-        href: "https://sourceforge.net/projects/vylen/files/rootfs/",
-        label: "Downloads",
-        icon: Download
     }
 ];
