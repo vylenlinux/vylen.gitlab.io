@@ -1,0 +1,76 @@
+<section class="hero">
+    <div class="container hero__inner">
+        <span class="hero__badge">
+            <span class="hero__badge-dot"></span>
+            {{ hero.badge }}
+        </span>
+
+        <h1 class="hero__title">
+            {{ hero.title }}
+            <span class="hero__highlight">{{ hero.highlight }}</span>
+        </h1>
+
+        <p class="hero__subtitle">{{ hero.subtitle }}</p>
+
+        <div class="hero__cta">
+            <a href="#/download" class="btn btn--primary btn--lg">
+                <span>{{ hero.primaryCtaLabel }}</span>
+            </a>
+
+            <a href="{{ ports_url }}" target="_blank" class="btn btn--ghost btn--lg">
+                <span>{{ hero.secondaryCtaLabel }}</span>
+            </a>
+        </div>
+
+        <div class="hero__stats">
+            {% for stat in stats %}
+                <div class="hero__stat">
+                    <span class="hero__stat-value">{{ stat.value }}</span>
+                    <span class="hero__stat-label">{{ stat.label }}</span>
+                </div>
+
+                {% if not loop.last %}
+                    <div class="hero__stat-divider"></div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="hero__glow"></div>
+    <div class="hero__grid"></div>
+</section>
+
+<section class="features">
+    <div class="container">
+        <div class="section-head">
+            <span class="section-head__eyebrow">Features</span>
+            <h2 class="section-head__title">{{ sectionTitle }}</h2>
+
+            <p class="section-head__subtitle">{{ sectionSubtitle }}</p>
+        </div>
+
+        <div class="features__grid">
+            {% for feature in features %}
+                <article class="feature-card">
+                    <div class="feature-card__icon">{{ feature.icon | icon(20) }}</div>
+                    <h3 class="feature-card__title">{{ feature.title }}</h3>
+
+                    <p class="feature-card__description">{{ feature.description }}</p>
+                </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="cta-band">
+    <div class="container cta-band__inner">
+        <div class="cta-band__content">
+            <h2 class="cta-band__title">Ready to take control?</h2>
+            <p class="cta-band__subtitle">Grab the stage3 tarball and build a system that's truly yours.</p>
+        </div>
+
+        <a href="#/download" class="btn btn--primary btn--lg">
+            <span>Download Vylen</span>
+        </a>
+    </div>
+</section>

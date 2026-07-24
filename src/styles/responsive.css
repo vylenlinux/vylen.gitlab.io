@@ -1,0 +1,214 @@
+@media (max-width: 968px) {
+    .features__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .philosophy__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .features__grid--about {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .terminal-showcase__inner {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+    }
+
+    .download-grid {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+    }
+
+    .requirements__tiers {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-3);
+    }
+}
+
+@media (max-width: 768px) {
+    .header__nav, .header__cta {
+        display: none;
+    }
+
+    .header__menu-toggle {
+        display: flex;
+    }
+
+    .header__inner {
+        height: 52px;
+    }
+
+    .container {
+        padding: 0 var(--space-2);
+    }
+
+    .hero {
+        padding: var(--space-8) 0 var(--space-6);
+    }
+
+    .hero__badge {
+        font-size: var(--fs-xs);
+        padding: 4px 12px;
+    }
+
+    .hero__cta {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0 var(--space-2);
+    }
+
+    .hero__cta .btn {
+        width: 100%;
+    }
+
+    .hero__stats {
+        gap: var(--space-3);
+        margin-top: var(--space-6);
+    }
+
+    .hero__stat-value {
+        font-size: var(--fs-base);
+    }
+
+    .hero__stat-divider {
+        height: 24px;
+    }
+
+    .page-head {
+        padding: var(--space-6) 0 var(--space-4);
+    }
+
+    .features__grid, .features__grid--about, .philosophy__grid, .philosophy__grid--about, .terminal-showcase__inner {
+        grid-template-columns: 1fr;
+    }
+
+    .requirements__tiers {
+        grid-template-columns: 1fr;
+    }
+
+    .download-release__card {
+        padding: var(--space-3);
+    }
+
+    .download-release__header {
+        margin-bottom: var(--space-3);
+    }
+
+    .download-release__actions {
+        flex-direction: column;
+    }
+
+    .download-release__btn {
+        width: 100%;
+    }
+
+    .download-release__field {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+
+    .download-release__field-value {
+        text-align: left;
+        width: 100%;
+    }
+
+    .about-intro__lead {
+        font-size: var(--fs-base);
+    }
+
+    .cta-band__inner {
+        flex-direction: column;
+        text-align: center;
+        padding: var(--space-4) var(--space-3);
+        gap: var(--space-3);
+    }
+
+    .cta-band__inner::before {
+        display: none;
+    }
+
+    .cta-band .btn {
+        width: 100%;
+    }
+
+    .footer__inner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: var(--space-4) var(--space-2);
+        gap: var(--space-3);
+    }
+
+    .footer__brand {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-1);
+    }
+
+    .footer__brand-text {
+        align-items: center;
+    }
+
+    .footer__nav-list {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--space-2);
+    }
+
+    .footer__bottom-inner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 4px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero__title {
+        font-size: clamp(1.6rem, 7vw, 2.25rem);
+    }
+
+    .hero__subtitle {
+        font-size: var(--fs-sm);
+    }
+
+    .feature-card, .philosophy__card, .req-tier {
+        padding: var(--space-3);
+    }
+
+    .req-card {
+        padding: var(--space-2);
+    }
+
+    .cta-band__title {
+        font-size: var(--fs-lg);
+    }
+
+    .footer__logo {
+        width:  32px;
+        height: 32px;
+    }
+
+    .download-release__card, .download-side__card {
+        padding: var(--space-2);
+    }
+
+    .page-head__title {
+        font-size: var(--fs-2xl);
+    }
+
+    .terminal__body {
+        font-size: .65rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .75ms !important;
+    }
+}

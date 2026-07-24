@@ -1,16 +1,30 @@
 stages:
+    - build
     - deploy
+
+build:
+    image: node:18-alpine
+    stage: build
+
+    script:
+        - npm install
+        - npm run build
+
+    artifacts:
+        paths:
+            - dist/
+
+        expire_in: 1 hour
 
 pages:
     stage: deploy
 
     script:
-        - mkdir public
-        - cp index.html public/
+        - mkdir -p public
+        - cp -r dist/ public/
 
     artifacts:
         paths:
-            - public
+            - public/
 
-    only:
-        - main
+        expire_in: 30 days

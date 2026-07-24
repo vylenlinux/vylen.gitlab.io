@@ -1,0 +1,147 @@
+<section class="hero">
+    <div class="container hero__inner">
+        <span class="hero__badge">
+            <span class="hero__badge-dot"></span>
+            {{ hero.badge }}
+        </span>
+
+        <h1 class="hero__title">
+            {{ hero.title }}
+            <span class="hero__highlight">{{ hero.highlight }}</span>
+        </h1>
+
+        <p class="hero__subtitle">{{ hero.subtitle }}</p>
+    </div>
+
+    <div class="hero__glow"></div>
+    <div class="hero__grid"></div>
+</section>
+
+<section class="about-intro">
+    <div class="container">
+        <div class="about-intro__content">
+            <p class="about-intro__lead">
+                Vylen Linux is an independent, source-based rolling-release distribution. It ships its own package manager —
+                <strong>Emerald</strong> — and its own ports system. Every package is compiled from source on the user's machine;
+                there are no prebuilt binary packages.
+            </p>
+
+            <p class="about-intro__text">
+                Vylen targets 64-bit systems only. There are no ISO images — Vylen provides a <strong>stage3 tarball</strong>
+                containing the prebuilt base packages needed to bootstrap a system.
+            </p>
+
+            <p class="about-intro__text">
+                It is built for experienced users who want to construct their system by hand, without prebuilt packages, to
+                maintain full control. Vylen uses <strong>OpenRC</strong> with <strong>ConsoleKit2/seatd</strong> instead of
+                systemd. All ports are managed by the Emerald package manager, with Flatpak available as a fallback for
+                applications not in the repositories.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="container">
+        <div class="section-head">
+            <span class="section-head__eyebrow">At a glance</span>
+            <h2 class="section-head__title">Key characteristics</h2>
+
+            <p class="section-head__subtitle">The core traits that define how Vylen works.</p>
+        </div>
+
+        <div class="features__grid features__grid--about">
+            {% for item in highlights %}
+                <article class="feature-card">
+                    <div class="feature-card__icon">{{ item.icon | icon(20) }}</div>
+                    <h3 class="feature-card__title">{{ item.title }}</h3>
+
+                    <p class="feature-card__description">{{ item.description }}</p>
+                </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="philosophy">
+    <div class="container">
+        <div class="section-head">
+            <span class="section-head__eyebrow">Principles</span>
+            <h2 class="section-head__title">What Vylen stands for</h2>
+
+            <p class="section-head__subtitle">The design choices that guide every decision in the distribution.</p>
+        </div>
+
+        <div class="philosophy__grid philosophy__grid--about">
+            {% for principle in principles %}
+                <div class="philosophy__card">
+                    <div class="philosophy__number">{{ principle.number }}</div>
+                    <h3 class="philosophy__title">{{ principle.title }}</h3>
+
+                    <p class="philosophy__text">{{ principle.text }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="terminal-showcase">
+    <div class="container">
+        <div class="terminal-showcase__inner">
+            <div class="terminal-showcase__content">
+                <span class="section-head__eyebrow">Emerald</span>
+                <h2 class="terminal-showcase__title">A source-based package manager</h2>
+
+                <p class="terminal-showcase__text">
+                    Emerald handles dependency resolution, source fetching, checksums, compilation, and installation. Creating
+                    custom ports and repositories is straightforward — the build template resembles PKGBUILD from Arch Linux and
+                    CRUX, but is written entirely in POSIX shell.
+                </p>
+
+                <ul class="terminal-showcase__list">
+                    <li>Dependency-aware builds from source</li>
+                    <li>POSIX shell build templates (PKGBUILD-like)</li>
+                    <li>Custom build flags per package</li>
+                    <li>System-wide upgrades in one command</li>
+                </ul>
+            </div>
+
+            <div class="terminal">
+                <div class="terminal__bar">
+                    <span class="terminal__dot terminal__dot--red"></span>
+                    <span class="terminal__dot terminal__dot--yellow"></span>
+                    <span class="terminal__dot terminal__dot--green"></span>
+                    <span class="terminal__title">~ — Konsole</span>
+                </div>
+
+                <pre class="terminal__body">
+                    <span class="terminal__prompt">root@vylen $</span> emerald install vivaldi -q
+                    <span>==> Building: vivaldi-8.1.4087.56-1</span>
+                    <span>==> Source found: /var/cache/emerald/sources/vivaldi-8.1.4087.56.rpm</span>
+                    <span>==> Checking checksums...</span>
+                    <span>==> Unpacking: /var/cache/emerald/sources/vivaldi-8.1.4087.56.rpm</span>
+                    <span>==> Build start: vivaldi-8.1.4087.56-1</span>
+                    <span>==> Build success: vivaldi-8.1.4087.56-1</span>
+                    <span>==> Packaging success: vivaldi-8.1.4087.56-1.epkg.tar.xz (132M)</span>
+                    <span>reinstall: vivaldi-8.1.4087.56-1...</span>
+                    <span class="terminal__ok">==></span> Updating desktop file MIME type cache...
+                    <span class="terminal__ok">==></span> Updating icon theme caches...
+                    <span class="terminal__prompt">root@vylen $</span>
+                </pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-band">
+    <div class="container cta-band__inner">
+        <div class="cta-band__content">
+            <h2 class="cta-band__title">Ready to take control?</h2>
+            <p class="cta-band__subtitle">Grab the stage3 tarball and build a system that's truly yours.</p>
+        </div>
+
+        <a href="#/download" class="btn btn--primary btn--lg">
+            <span>Download Vylen</span>
+        </a>
+    </div>
+</section>

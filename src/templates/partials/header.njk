@@ -1,0 +1,55 @@
+<header class="header" data-header>
+    <div class="container header__inner">
+        <a href="#/" class="header__brand">
+            Vylen<span class="header__brand-accent">Linux</span>
+        </a>
+
+        <nav class="header__nav" aria-label="Primary">
+            <ul class="header__nav-list">
+                {% for link in navLinks %}
+                    <li>
+                        {% if link.external %}
+                            <a href="{{ link.path }}" class="header__nav-link" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>
+                        {% else %}
+                            <a href="#{{ link.path }}" class="header__nav-link{% if link.path === currentPath %} header__nav-link--active{% endif %}">{{ link.label }}</a>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </nav>
+
+        <div class="header__actions">
+            <button class="header__theme-toggle" data-theme-toggle aria-label="Toggle theme">
+                <span data-theme-icon></span>
+            </button>
+
+            <a href="#/download" class="btn btn--primary btn--sm header__cta">
+                <span>Get Vylen</span>
+            </a>
+
+            <button class="header__menu-toggle" data-menu-toggle aria-label="Toggle menu" aria-expanded="false">
+                <span data-menu-icon></span>
+            </button>
+        </div>
+    </div>
+
+    <div class="header__mobile-nav" data-mobile-nav>
+        <ul class="header__mobile-list">
+            {% for link in navLinks %}
+                <li>
+                    {% if link.external %}
+                        <a href="{{ link.path }}" class="header__mobile-link" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>
+                    {% else %}
+                        <a href="#{{ link.path }}" class="header__mobile-link{% if link.path === currentPath %} header__mobile-link--active{% endif %}">{{ link.label }}</a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+
+            <li>
+                <a href="#/download" class="btn btn--primary header__mobile-cta">
+                    <span>Get Vylen</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</header>
