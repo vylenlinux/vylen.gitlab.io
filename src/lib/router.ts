@@ -1,6 +1,6 @@
 export interface Route {
     path: string;
-    title: string;
+    title?: string;
     render: (currentPath: string) => string;
     mount?: () => void;
 }
@@ -35,7 +35,7 @@ export class Router {
         const route: Route | undefined = (this.routes.get(hash) ?? this.notFoundRoute ?? this.routes.get("/"));
         if (!route) return;
 
-        document.title = route.title;
+        document.title = (route.title ? `${route.title} | Vylen Linux` : "Vylen Linux");
         this.container.innerHTML = route.render(hash);
         this.onNavigate?.();
 

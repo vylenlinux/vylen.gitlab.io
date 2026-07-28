@@ -1,19 +1,12 @@
 import {
     Package,
     Loader,
-    TriangleAlert,
-    BookOpen
+    TriangleAlert
 } from "lucide";
 
 import {
     render
 } from "../lib/template";
-
-import {
-    navLinks,
-    logoUrl,
-    footerLinks
-} from "../data/site";
 
 import {
     downloadInfo,
@@ -36,17 +29,12 @@ export function renderDownload(currentPath: string): string {
         requirementTiers,
         icon_package: Package,
         icon_loader: Loader,
-        icon_alert: TriangleAlert,
-        icon_book: BookOpen
+        icon_alert: TriangleAlert
     });
 
     return renderShell({
-        title: "Download — Vylen Linux",
         content,
-        currentPath,
-        navLinks,
-        logoUrl,
-        footerLinks
+        currentPath
     });
 }
 

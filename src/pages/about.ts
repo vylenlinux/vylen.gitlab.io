@@ -3,12 +3,6 @@ import {
 } from "../lib/template";
 
 import {
-    navLinks,
-    logoUrl,
-    footerLinks
-} from "../data/site";
-
-import {
     aboutHighlights
 } from "../data/features";
 
@@ -22,9 +16,6 @@ import {
 
 export function renderAbout(currentPath: string): string {
     const content: string = render("pages/about.njk", {
-        navLinks,
-        logoUrl,
-        currentPath,
         highlights: aboutHighlights,
         principles,
 
@@ -37,11 +28,7 @@ export function renderAbout(currentPath: string): string {
     });
 
     return renderShell({
-        title: "About — Vylen Linux",
         content,
-        currentPath,
-        navLinks,
-        logoUrl,
-        footerLinks
+        currentPath
     });
 }

@@ -40,32 +40,27 @@ if (!root) throw new Error("Root element #app not found");
 const routes: Route[] = [
     {
         path: "/",
-        title: "Vylen Linux — Independent Source-Based Distribution",
-
-        render: (path: string): string => renderHome(path)
+        render: renderHome
     },
 
     {
         path: "/about",
-        title: "About — Vylen Linux",
-
-        render: (path: string): string => renderAbout(path)
+        title: "About",
+        render: renderAbout
     },
 
     {
         path: "/download",
-        title: "Download — Vylen Linux",
-
-        render: (path: string): string => renderDownload(path),
+        title: "Download",
+        render: renderDownload,
         mount: mountDownload
     }
 ];
 
 const notFoundRoute: Route = {
     path: "/404",
-    title: "404 — Vylen Linux",
-
-    render: (path: string): string => renderNotFound(path)
+    title: "404",
+    render: renderNotFound
 };
 
 const router: Router = new Router({

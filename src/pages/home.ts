@@ -3,9 +3,6 @@ import {
 } from "../lib/template";
 
 import {
-    navLinks,
-    logoUrl,
-    footerLinks,
     portsUrl
 } from "../data/site";
 
@@ -19,9 +16,6 @@ import {
 
 export function renderHome(currentPath: string): string {
     const content: string = render("pages/home.njk", {
-        navLinks,
-        logoUrl,
-        currentPath,
         features: homeFeatures,
 
         hero: {
@@ -61,11 +55,7 @@ export function renderHome(currentPath: string): string {
     });
 
     return renderShell({
-        title: "Vylen Linux — Independent Source-Based Distribution",
         content,
-        currentPath,
-        navLinks,
-        logoUrl,
-        footerLinks
+        currentPath
     });
 }
