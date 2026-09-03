@@ -20,7 +20,7 @@ export const principles: Principle[] = [
     {
         number: "03",
         title: "No systemd",
-        text: "Vylen uses OpenRC for init and service management, with ConsoleKit2 and seatd for seat management."
+        text: "Vylen uses OpenRC for init and service management, with elogind and seatd for seat management."
     },
 
     {

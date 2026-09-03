@@ -57,7 +57,7 @@ export const aboutHighlights: Feature[] = [
     {
         icon: ShieldCheck,
         title: "No systemd",
-        description: "Vylen uses OpenRC with ConsoleKit2 and seatd instead of systemd."
+        description: "Vylen uses OpenRC with elogind and seatd instead of systemd."
     },
 
     {
