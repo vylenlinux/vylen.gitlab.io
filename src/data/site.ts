@@ -37,6 +37,11 @@ export const navLinks: NavLink[] = [
     },
 
     {
+        label: "Developers",
+        path: "/developers"
+    },
+
+    {
         label: "Ports",
         path: portsUrl,
         external: true

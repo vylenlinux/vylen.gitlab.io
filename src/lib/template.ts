@@ -17,6 +17,10 @@ import homeTpl from "../templates/pages/home.njk?raw";
 import aboutTpl from "../templates/pages/about.njk?raw";
 import downloadTpl from "../templates/pages/download.njk?raw";
 import notFoundTpl from "../templates/pages/notFound.njk?raw";
+import developersTpl from "../templates/pages/developers.njk?raw";
+import developerCardTpl from "../templates/partials/developer-card.njk?raw";
+import developersErrorTpl from "../templates/partials/developers-error.njk?raw";
+import developersEmptyTpl from "../templates/partials/developers-empty.njk?raw";
 import SafeString = runtime.SafeString;
 
 const templates: Record<string, string> = {
@@ -26,6 +30,10 @@ const templates: Record<string, string> = {
     "pages/home.njk": homeTpl,
     "pages/about.njk": aboutTpl,
     "pages/download.njk": downloadTpl,
+    "pages/developers.njk": developersTpl,
+    "partials/developer-card.njk": developerCardTpl,
+    "partials/developers-error.njk": developersErrorTpl,
+    "partials/developers-empty.njk": developersEmptyTpl,
     "pages/notFound.njk": notFoundTpl
 };
 

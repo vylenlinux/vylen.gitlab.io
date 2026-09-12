@@ -34,6 +34,11 @@ import {
     renderNotFound
 } from "./pages/notFound";
 
+import {
+    renderDevelopers,
+    mountDevelopers
+} from "./pages/developers";
+
 const root: HTMLElement | null = document.getElementById("app");
 if (!root) throw new Error("Root element #app not found");
 
@@ -54,6 +59,13 @@ const routes: Route[] = [
         title: "Download",
         render: renderDownload,
         mount: mountDownload
+    },
+
+    {
+        path: "/developers",
+        title: "Developers",
+        render: renderDevelopers,
+        mount: mountDevelopers
     }
 ];
 
