@@ -81,9 +81,12 @@ function showRelease(release: LatestRelease, el: DownloadCardElements): void {
         b3sumUrl
     } = buildDownloadUrls(release.date, release.tarball);
 
+    const tarballName: string = resolveVersionTemplate(release.tarball, release.date);
+    const b3sumName: string = resolveVersionTemplate(release.b3sum, release.date);
+
     if (el.date) el.date.textContent = formatDate(release.date);
-    if (el.tarball) el.tarball.textContent = release.tarball;
-    if (el.b3sum) el.b3sum.textContent = release.b3sum;
+    if (el.tarball) el.tarball.textContent = tarballName;
+    if (el.b3sum) el.b3sum.textContent = b3sumName;
 
     if (el.tarballLink) {
         el.tarballLink.href = tarballUrl;
@@ -98,6 +101,10 @@ function showRelease(release: LatestRelease, el: DownloadCardElements): void {
     el.header?.removeAttribute("hidden");
     el.body?.removeAttribute("hidden");
     el.actions?.removeAttribute("hidden");
+}
+
+function resolveVersionTemplate(value: string, version: string): string {
+    return value.replaceAll("%(version)", version);
 }
 
 function formatDate(dateStr: string): string {

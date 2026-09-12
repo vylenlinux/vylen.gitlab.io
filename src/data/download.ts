@@ -95,9 +95,10 @@ export function buildDownloadUrls(date: string, tarball: string): {
     b3sumUrl:   string;
 } {
     const baseUrl: string = "https://sourceforge.net/projects/vylen/files/rootfs";
+    const tarball_name: string = tarball.replaceAll("%(version)", date);
 
     return {
-        tarballUrl: `${baseUrl}/${date}/${tarball}/download`,
-        b3sumUrl:   `${baseUrl}/${date}/${tarball}.b3sum/download`
+        tarballUrl: `${baseUrl}/${date}/${tarball_name}/download`,
+        b3sumUrl:   `${baseUrl}/${date}/${tarball_name}.b3sum/download`
     };
 }
