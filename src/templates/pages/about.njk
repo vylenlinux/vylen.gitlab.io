@@ -21,21 +21,19 @@
     <div class="container">
         <div class="about-intro__content">
             <p class="about-intro__lead">
-                Vylen Linux is an independent, source-based rolling-release distribution. It ships its own package manager —
-                <strong>Emerald</strong> — and its own ports system. Every package is compiled from source on the user's machine;
-                there are no prebuilt binary packages.
+                Vylen Linux is an independent, source-based distribution. It ships its own package manager —
+                <strong>Emerald</strong> — and public ports repositories. Ports can be built from source on the user's machine;
+                the bootstrap rootfs is distributed separately as a prebuilt base.
             </p>
 
             <p class="about-intro__text">
-                Vylen targets 64-bit systems only. There are no ISO images — Vylen provides a <strong>stage3 tarball</strong>
-                containing the prebuilt base packages needed to bootstrap a system.
+                The current rootfs release targets x86_64. There are no ISO images in the current release metadata — Vylen provides
+                a <strong>stage3-style rootfs tarball</strong> containing a prebuilt base for bootstrapping a system.
             </p>
 
             <p class="about-intro__text">
-                It is built for experienced users who want to construct their system by hand, without prebuilt packages, to
-                maintain full control. Vylen uses <strong>OpenRC</strong> with <strong>elogind/seatd</strong> instead of
-                systemd. All ports are managed by the Emerald package manager, with Flatpak available as a fallback for
-                applications not in the repositories.
+                It is built for experienced users who want to construct their system by hand and keep control over its
+                configuration. Vylen uses <strong>OpenRC</strong> instead of systemd, and Emerald manages the port build workflow.
             </p>
         </div>
     </div>
@@ -75,7 +73,7 @@
         <div class="philosophy__grid philosophy__grid--about">
             {% for principle in principles %}
                 <div class="philosophy__card">
-                    <div class="philosophy__number">{{ principle.number }}</div>
+                    <div class="philosophy__number">{{ loop.index | padNumber }}</div>
                     <h3 class="philosophy__title">{{ principle.title }}</h3>
 
                     <p class="philosophy__text">{{ principle.text }}</p>
@@ -112,7 +110,7 @@
                     <span class="terminal__dot terminal__dot--yellow"></span>
                     <span class="terminal__dot terminal__dot--green"></span>
 
-                    <span class="terminal__title">~ — Konsole</span>
+                    <span class="terminal__title">~ : fish — Konsole</span>
                 </div>
 
                 <pre class="terminal__body">

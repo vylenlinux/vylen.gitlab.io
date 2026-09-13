@@ -2,8 +2,6 @@ import {
     Package,
     Terminal,
     ShieldCheck,
-    Boxes,
-    Gitlab,
     Cpu,
     RefreshCw,
     Wrench,
@@ -24,20 +22,20 @@ export interface Feature {
 export const homeFeatures: Feature[] = [
     {
         icon: ShieldCheck,
-        title: "Fully Independent",
-        description: "Not derived from any other distribution. The base system is minimal and fully auditable."
+        title: "Independent tooling",
+        description: "Vylen develops and publishes its own package, ports, and rootfs projects rather than presenting a preconfigured desktop image."
     },
 
     {
         icon: Sliders,
-        title: "Total Control",
-        description: "Every package is compiled on your machine with your build flags. Nothing is hidden or pre-decided."
+        title: "Build-time control",
+        description: "Emerald builds ports from source and exposes the build configuration so users can inspect and adjust the process."
     },
 
     {
         icon: Layers,
-        title: "Minimal by Design",
-        description: "Start from a stage3 tarball and build only what you need. No bloat, no unwanted defaults."
+        title: "Minimal by design",
+        description: "Start from the published rootfs and add the software and configuration needed for your system."
     }
 ];
 
@@ -45,48 +43,42 @@ export const aboutHighlights: Feature[] = [
     {
         icon: Package,
         title: "Emerald & Ports",
-        description: "Every package is built from source on your machine via the Emerald package manager and its ports tree."
+        description: "Emerald provides the package workflow, while the public ports repositories contain the build definitions used by Vylen."
     },
 
     {
         icon: Cpu,
-        title: "x86_64 Only",
-        description: "Vylen targets 64-bit exclusively. There is no support for 32-bit, ARM, or other architectures."
+        title: "x86_64 rootfs",
+        description: "The published rootfs release is an x86_64 tarball. Other architecture targets are not documented by the current release metadata."
     },
 
     {
         icon: ShieldCheck,
         title: "No systemd",
-        description: "Vylen uses OpenRC with elogind and seatd instead of systemd."
+        description: "Vylen uses OpenRC for init and service management rather than systemd."
     },
 
     {
         icon: Terminal,
         title: "Stage3 Tarball",
-        description: "No ISO images. Vylen ships a stage3 tarball with prebuilt base packages to bootstrap the system."
+        description: "The project publishes a stage3-style rootfs tarball with a prebuilt base for bootstrapping, not a ready-to-use desktop installation."
     },
 
     {
         icon: RefreshCw,
-        title: "Rolling Release",
-        description: "Repositories hold current versions, but avoid unstable or unverified package releases."
+        title: "Rolling updates",
+        description: "Packages and rootfs releases are published independently; check the repositories and release metadata for current versions."
     },
 
     {
         icon: Wrench,
         title: "POSIX Shell Ports",
-        description: "Package build templates resemble Arch's PKGBUILD and CRUX, but are written entirely in POSIX shell."
+        description: "Emerald's port build workflow uses shell-based build definitions and follows a PKGBUILD-inspired layout."
     },
 
     {
-        icon: Gitlab,
-        title: "Open Source",
-        description: "All source code, ports, and build scripts are publicly available on GitLab."
-    },
-
-    {
-        icon: Boxes,
-        title: "Flatpak Optional",
-        description: "Flatpak is supported as a fallback for applications missing from the Vylen repositories."
+        icon: Package,
+        title: "Open source projects",
+        description: "The package manager, ports, rootfs metadata, and supporting projects are published in the Vylen GitLab group."
     }
 ];

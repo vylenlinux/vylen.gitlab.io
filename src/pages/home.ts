@@ -22,35 +22,35 @@ export function renderHome(currentPath: string): string {
             badge: "Independent · Source-based",
             title: "Your system.",
             highlight: "Your rules.",
-            subtitle: "Vylen Linux is an independent, source-based distribution built for experienced users who want full control over every component.",
+            subtitle: "Vylen Linux is an independent, source-based distribution for experienced users who want to assemble and configure their system themselves.",
             primaryCtaLabel: "Get Vylen",
             secondaryCtaLabel: "View ports"
         },
 
         stats: [
             {
-                value: "Emerald",
-                label: "Package manager"
+                label: "Package manager",
+                value: "Emerald"
             },
 
             {
-                value: "OpenRC",
-                label: "Init system"
+                label: "Init system",
+                value: "OpenRC"
             },
 
             {
-                value: "x86_64",
-                label: "Architecture"
+                label: "Architecture",
+                value: "x86_64"
             },
 
             {
-                value: "Rolling",
-                label: "Release model"
+                label: "Package workflow",
+                value: "Source-based"
             }
         ],
 
         sectionTitle: "What sets Vylen apart",
-        sectionSubtitle: "A system designed for those who want maximum configurability — down to every detail.",
+        sectionSubtitle: "A minimal starting point for users who want to make the important system choices themselves.",
         ports_url: portsUrl
     });
 

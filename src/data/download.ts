@@ -22,51 +22,51 @@ export interface RequirementTier {
 
 export const requirementTiers: RequirementTier[] = [
     {
-        title: "Minimum",
-        subtitle: "Enough to bootstrap the stage3 tarball and build a basic system.",
+        title: "Bootstrap notes",
+        subtitle: "The project does not currently publish official minimum hardware requirements.",
 
         items: [
             {
                 icon: Package,
                 label: "RAM",
-                value: "512 MB"
+                value: "Depends on the build"
             },
 
             {
                 icon: Terminal,
                 label: "Disk",
-                value: "1 GB"
+                value: "Allow space for sources and packages"
             },
 
             {
                 icon: Globe,
                 label: "Network",
-                value: "Required for stage3 download"
+                value: "Required for downloads"
             }
         ]
     },
 
     {
-        title: "Recommended",
-        subtitle: "Comfortable builds and a smoother experience compiling packages from source.",
+        title: "Build considerations",
+        subtitle: "Source builds can require substantially more resources than the rootfs itself.",
 
         items: [
             {
                 icon: Package,
                 label: "RAM",
-                value: "2 GB+"
+                value: "More is better for parallel builds"
             },
 
             {
                 icon: Terminal,
                 label: "Disk",
-                value: "10 GB+"
+                value: "Plan for source and build caches"
             },
 
             {
                 icon: Globe,
                 label: "Network",
-                value: "Required for stage3 and port sources"
+                value: "Required for rootfs and port sources"
             }
         ]
     }
@@ -79,8 +79,8 @@ export const downloadInfo: {
     jsonPath: string;
 } = {
     title: "Download Vylen Linux",
-    subtitle: "Stage3 tarball — a minimal base system to bootstrap a full Vylen installation.",
-    warning: "This is a minimal base, not a ready-to-use system. The rest is built and configured from source.",
+    subtitle: "Stage3-style rootfs tarball — a minimal base for bootstrapping a Vylen installation.",
+    warning: "This is a minimal prebuilt base, not a ready-to-use system. Add packages and configuration after extracting it.",
     jsonPath: "https://gitlab.com/api/v4/projects/vylen%2Frootfs/repository/files/release.json/raw"
 };
 
@@ -94,11 +94,11 @@ export function buildDownloadUrls(date: string, tarball: string): {
     tarballUrl: string;
     b3sumUrl:   string;
 } {
-    const baseUrl: string = "https://sourceforge.net/projects/vylen/files/rootfs";
-    const tarball_name: string = tarball.replaceAll("%(version)", date);
+    const baseUrl:     string = "https://sourceforge.net/projects/vylen/files/rootfs";
+    const tarballName: string = tarball.replaceAll("%(version)", date);
 
     return {
-        tarballUrl: `${baseUrl}/${date}/${tarball_name}/download`,
-        b3sumUrl:   `${baseUrl}/${date}/${tarball_name}.b3sum/download`
+        tarballUrl: `${baseUrl}/${date}/${tarballName}/download`,
+        b3sumUrl:   `${baseUrl}/${date}/${tarballName}.b3sum/download`
     };
 }

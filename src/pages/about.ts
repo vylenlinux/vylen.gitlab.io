@@ -23,7 +23,7 @@ export function renderAbout(currentPath: string): string {
             badge: "About the distribution",
             title: "A distro built by you,",
             highlight: "for you.",
-            subtitle: "Vylen Linux is an independent, source-based rolling-release distribution. No binary packages, no ISO images — just a stage3 tarball and full control."
+            subtitle: "Vylen Linux is an independent, source-based distribution with a minimal rootfs and a source-oriented package workflow."
         }
     });
 

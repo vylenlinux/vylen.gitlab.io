@@ -1,31 +1,26 @@
 export interface Principle {
-    number: string;
     title:  string;
     text:   string;
 }
 
 export const principles: Principle[] = [
     {
-        number: "01",
         title: "Source over binary",
-        text: "Every package is compiled from source on your machine. You see what goes in, control how it's built, and own the result."
+        text: "Vylen provides a source-based package workflow through Emerald and its ports tree. The bootstrap rootfs is distributed separately as a prebuilt base."
     },
 
     {
-        number: "02",
-        title: "Independence",
-        text: "Not derived from Debian, Arch, CRUX, or any other distribution. The toolchain and base system are built from scratch."
+        title: "Independent tooling",
+        text: "Vylen maintains its own package manager, ports repositories, rootfs releases, and supporting system projects on GitLab."
     },
 
     {
-        number: "03",
         title: "No systemd",
-        text: "Vylen uses OpenRC for init and service management, with elogind and seatd for seat management."
+        text: "Vylen uses OpenRC for init and service management rather than systemd."
     },
 
     {
-        number: "04",
         title: "User sovereignty",
-        text: "Built for experienced users who want to construct their system by hand, without prebuilt binary packages."
+        text: "The project is aimed at experienced users who want to assemble and configure their system by hand."
     }
 ];

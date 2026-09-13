@@ -62,6 +62,10 @@ env.addFilter("icon", (icon: IconNode, size?: number): SafeString => {
     return new nunjucks.runtime.SafeString(iconToSvg(icon, size));
 });
 
+env.addFilter("padNumber", (value: number): string => {
+    return String(value).padStart(2, "0");
+});
+
 export function render(template: string, context: Record<string, unknown> = {}): string {
     return env.render(template, context);
 }
