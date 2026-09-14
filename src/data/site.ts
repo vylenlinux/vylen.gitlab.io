@@ -19,6 +19,7 @@ export interface FooterLink {
 
 export const logoUrl:  string = "https://gitlab.com/vylen/artworks/-/raw/main/png/round_colored.png";
 export const portsUrl: string = "https://vylen.gitlab.io/packages";
+export const wikiUrl:  string = "https://vylen.gitlab.io/wiki";
 
 export const navLinks: NavLink[] = [
     {
@@ -44,6 +45,12 @@ export const navLinks: NavLink[] = [
     {
         label: "Ports",
         path: portsUrl,
+        external: true
+    },
+
+    {
+        label: "Wiki",
+        path: wikiUrl,
         external: true
     }
 ];
