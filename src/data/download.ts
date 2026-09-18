@@ -8,6 +8,10 @@ import type {
     IconNode
 } from "lucide";
 
+import {
+    resolveVersionTemplate
+} from "../lib/downloadCard";
+
 export interface RequirementSet {
     icon: IconNode;
     label: string;
@@ -76,12 +80,10 @@ export const downloadInfo: {
     title:    string;
     subtitle: string;
     warning:  string;
-    jsonPath: string;
 } = {
     title: "Download Vylen Linux",
     subtitle: "Stage3-style rootfs tarball — a minimal base for bootstrapping a Vylen installation.",
-    warning: "This is a minimal prebuilt base, not a ready-to-use system. Add packages and configuration after extracting it.",
-    jsonPath: "https://gitlab.com/api/v4/projects/vylen%2Frootfs/repository/files/release.json/raw"
+    warning: "This is a minimal prebuilt base, not a ready-to-use system. Add packages and configuration after extracting it."
 };
 
 export interface LatestRelease {
@@ -90,15 +92,12 @@ export interface LatestRelease {
     b3sum:   string;
 }
 
-export function buildDownloadUrls(date: string, tarball: string): {
+export function buildDownloadUrls(release: LatestRelease): {
     tarballUrl: string;
     b3sumUrl:   string;
 } {
-    const baseUrl:     string = "https://sourceforge.net/projects/vylen/files/rootfs";
-    const tarballName: string = tarball.replaceAll("%(version)", date);
-
     return {
-        tarballUrl: `${baseUrl}/${date}/${tarballName}/download`,
-        b3sumUrl:   `${baseUrl}/${date}/${tarballName}.b3sum/download`
+        tarballUrl: resolveVersionTemplate(release.tarball, release.date),
+        b3sumUrl:   resolveVersionTemplate(release.b3sum,   release.date)
     };
 }

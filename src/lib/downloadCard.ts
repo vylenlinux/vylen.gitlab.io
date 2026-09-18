@@ -1,3 +1,5 @@
+import JSON5 from "json5";
+
 import {
     Loader,
     CircleAlert,
@@ -13,9 +15,8 @@ import {
     buildDownloadUrls
 } from "../data/download";
 
-import {
-    type LatestRelease,
-    downloadInfo
+import type {
+    LatestRelease
 } from "../data/download";
 
 type LoadingState = "loading" | "loaded" | "error";
@@ -75,18 +76,23 @@ function setState(state: LoadingState, el: DownloadCardElements): void {
     }
 }
 
+function getFilename(url: string): string {
+    const index: number = url.lastIndexOf("/");
+    return ((index === -1) ? url : url.slice(index + 1));
+}
+
 function showRelease(release: LatestRelease, el: DownloadCardElements): void {
     const {
         tarballUrl,
         b3sumUrl
-    } = buildDownloadUrls(release.date, release.tarball);
+    } = buildDownloadUrls(release);
 
     const tarballName: string = resolveVersionTemplate(release.tarball, release.date);
     const b3sumName: string = resolveVersionTemplate(release.b3sum, release.date);
 
     if (el.date) el.date.textContent = formatDate(release.date);
-    if (el.tarball) el.tarball.textContent = tarballName;
-    if (el.b3sum) el.b3sum.textContent = b3sumName;
+    if (el.tarball) el.tarball.textContent = getFilename(tarballName);
+    if (el.b3sum) el.b3sum.textContent = getFilename(b3sumName);
 
     if (el.tarballLink) {
         el.tarballLink.href = tarballUrl;
@@ -103,7 +109,7 @@ function showRelease(release: LatestRelease, el: DownloadCardElements): void {
     el.actions?.removeAttribute("hidden");
 }
 
-function resolveVersionTemplate(value: string, version: string): string {
+export function resolveVersionTemplate(value: string, version: string): string {
     return value.replaceAll("%(version)", version);
 }
 
@@ -126,14 +132,15 @@ export async function initDownloadCard(): Promise<void> {
     setState("loading", el);
 
     try {
-        const res: Response = await fetch(downloadInfo.jsonPath);
+        const res: Response = await fetch("/rootfs.json5");
 
         if (!res.ok) {
             setState("error", el);
             return;
         }
 
-        const release: LatestRelease = (await res.json()) as LatestRelease;
+        const text: string = await res.text();
+        const release: LatestRelease = (JSON5.parse(text) as LatestRelease);
 
         setState("loaded", el);
         showRelease(release, el);
