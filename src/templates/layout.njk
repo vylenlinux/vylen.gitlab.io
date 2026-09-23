@@ -1,15 +1,42 @@
+{% set fhsCompleted = false %}
+{% set systemdCompleted = false %}
+
 <div class="app-shell">
     {% include "partials/header.njk" %}
 
     <!-- ========================================================================== -->
-    <aside class="migration-notice" role="status" aria-label="Development status">
-         <div class="container migration-notice__inner">
-             <span class="migration-notice__marker" aria-hidden="true"></span>
+    <aside class="migration-notice" aria-labelledby="migration-notice-title">
+        <div class="container migration-notice__inner">
+            <div class="migration-notice__content">
+                <div class="migration-notice__heading">
+                    <span class="migration-notice__marker" aria-hidden="true"></span>
 
-             <p>
-                 <strong>Vylen Linux is currently undergoing a major transition.</strong> We are moving to a merged-/usr filesystem layout and adopting <code>systemd</code> as the init system.
-             </p>
-         </div>
+                    <p id="migration-notice-title">
+                        <strong>Vylen Linux is currently undergoing a major transition.</strong>
+                    </p>
+                </div>
+
+                <p class="migration-notice__intro">Our current roadmap is focused on improving standards compliance and modernizing the base system.</p>
+
+                <ol class="migration-roadmap">
+                    <li class="migration-roadmap__item{% if fhsCompleted %} migration-roadmap__item--completed{% endif %}">
+                        <span class="migration-roadmap__status">{% if fhsCompleted %}Completed{% else %}Planned{% endif %}</span>
+
+                        <span>
+                            <strong>FHS migration</strong> — move to an FHS-compliant filesystem layout and rebuild ports that do not follow the standard.
+                        </span>
+                    </li>
+
+                    <li class="migration-roadmap__item{% if systemdCompleted %} migration-roadmap__item--completed{% endif %}">
+                        <span class="migration-roadmap__status">{% if systemdCompleted %}Completed{% else %}Planned{% endif %}</span>
+
+                        <span>
+                            <strong>systemd adoption</strong> — switch to <code>systemd</code> as the init system and rebuild ports that provide system services.
+                        </span>
+                    </li>
+                </ol>
+            </div>
+        </div>
     </aside>
     <!-- ========================================================================== -->
 
