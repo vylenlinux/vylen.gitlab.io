@@ -1,6 +1,18 @@
 <div class="app-shell">
     {% include "partials/header.njk" %}
 
+    <!-- ========================================================================== -->
+    <aside class="migration-notice" role="status" aria-label="Development status">
+         <div class="container migration-notice__inner">
+             <span class="migration-notice__marker" aria-hidden="true"></span>
+
+             <p>
+                 <strong>Vylen Linux is currently undergoing a major transition.</strong> We are moving to a merged-/usr filesystem layout and adopting <code>systemd</code> as the init system.
+             </p>
+         </div>
+    </aside>
+    <!-- ========================================================================== -->
+
     <main id="main-content" class="main">
         {{ content | safe }}
     </main>
