@@ -48,19 +48,6 @@
         padding: 0 var(--space-2);
     }
 
-    .migration-notice__inner {
-        font-size: var(--fs-xs);
-        line-height: 1.5;
-    }
-
-    .migration-notice__intro {
-        margin-left: 20px !important;
-    }
-
-    .migration-roadmap {
-        grid-template-columns: 1fr;
-    }
-
     .hero {
         padding: var(--space-8) 0 var(--space-6);
     }
