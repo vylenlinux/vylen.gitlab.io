@@ -9,6 +9,40 @@
     transition: background var(--transition), border-color var(--transition);
 }
 
+/** ========================================================================================== */
+.header__notice {
+    border-bottom: 1px solid color-mix(in srgb, var(--accent) 24%, var(--border));
+    background: color-mix(in srgb, var(--accent-soft) 72%, var(--bg));
+    color: var(--text-muted);
+    font-size: var(--fs-xs);
+}
+
+.header__notice-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 32px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    text-align: center;
+}
+
+.header__notice strong {
+    color: var(--text);
+    font-weight: var(--fw-semibold);
+}
+
+.header__notice-dot {
+    flex: 0 0 auto;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 14%, transparent);
+}
+/** ========================================================================================== */
+
 @media (max-width: 768px) {
     .header {
         position: relative;
