@@ -1,15 +1,15 @@
 <div class="app-shell">
     {% include "partials/header.njk" %}
 
-    <!--<div class="header__notice" role="status" aria-label="Статус перехода на FHS">
+    <div class="header__notice" role="status" aria-label="notice">
         <div class="container header__notice-inner">
             <span class="header__notice-dot" aria-hidden="true"></span>
 
             <span>
-                <strong>Vylen Linux is transitioning to the Filesystem Hierarchy Standard (FHS).</strong> Most of the work is already complete.
+                <strong>Vylen Linux is migrating to systemd.</strong> The work has just begun.
             </span>
         </div>
-    </div>-->
+    </div>
 
     <main id="main-content" class="main">
         {{ content | safe }}
