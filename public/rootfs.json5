@@ -1,5 +1,5 @@
 {
-    date: "20260928",
+    date: "20261019",
     tarball: "https://sourceforge.net/projects/vylen/files/rootfs/%(version)/vylen-rootfs-x86_64_%(version).tar.xz",
     b3sum: "https://sourceforge.net/projects/vylen/files/rootfs/%(version)/vylen-rootfs-x86_64_%(version).tar.xz.b3sum"
 }
