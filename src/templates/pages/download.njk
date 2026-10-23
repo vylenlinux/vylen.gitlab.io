@@ -10,55 +10,66 @@
 <section class="download-main">
     <div class="container">
         <div class="download-grid">
-            <div class="download-release">
-                <div class="download-release__card" data-download-card>
-                    <div class="download-release__header" data-download-header hidden>
-                        <div class="download-release__icon">{{ icon_package | icon(28) }}</div>
-
-                        <div class="download-release__info">
-                            <h2 class="download-release__title">Stage3 Tarball</h2>
-                            <span class="download-release__date" data-download-date></span>
+            {% if true %}
+                <div class="download-release">
+                    <div class="download-release__card">
+                        <div class="download-release__error">
+                            <span>{{ icon_alert | icon(20) }}</span>
+                            <span>We found an issue with the current archive. A new archive will be available soon. Please check back later.</span>
                         </div>
-                    </div>
-
-                    <div class="download-release__placeholder" data-download-loading>
-                        <span class="spin">{{ icon_loader | icon(20) }}</span>
-                        <span>Loading release info…</span>
-                    </div>
-
-                    <div class="download-release__error" data-download-error hidden>
-                        <span>{{ icon_alert | icon(20) }}</span>
-                        <span>Failed to load release info. Try again later.</span>
-                    </div>
-
-                    <div class="download-release__body" data-download-body hidden>
-                        <div class="download-release__field">
-                            <span class="download-release__field-label">File</span>
-                            <span class="download-release__field-value" data-download-tarball></span>
-                        </div>
-
-                        <div class="download-release__field">
-                            <span class="download-release__field-label">Checksum</span>
-                            <span class="download-release__field-value" data-download-b3sum></span>
-                        </div>
-                    </div>
-
-                    <div class="download-release__actions" data-download-actions hidden>
-                        <a href="#" class="btn btn--primary btn--lg download-release__btn" data-download-tarball-link target="_blank" rel="noopener noreferrer">
-                            <span>Download Tarball</span>
-                        </a>
-
-                        <a href="#" class="btn btn--ghost download-release__btn" data-download-b3sum-link target="_blank" rel="noopener noreferrer">
-                            <span>B3sum Checksum</span>
-                        </a>
                     </div>
                 </div>
+            {% else %}
+                <div class="download-release">
+                    <div class="download-release__card" data-download-card>
+                        <div class="download-release__header" data-download-header hidden>
+                            <div class="download-release__icon">{{ icon_package | icon(28) }}</div>
 
-                <div class="download-warning">
-                    <div class="download-warning__icon">{{ icon_alert | icon(20) }}</div>
-                    <p>{{ warning }}</p>
+                            <div class="download-release__info">
+                                <h2 class="download-release__title">Stage3 Tarball</h2>
+                                <span class="download-release__date" data-download-date></span>
+                            </div>
+                        </div>
+
+                        <div class="download-release__placeholder" data-download-loading>
+                            <span class="spin">{{ icon_loader | icon(20) }}</span>
+                            <span>Loading release info…</span>
+                        </div>
+
+                        <div class="download-release__error" data-download-error hidden>
+                            <span>{{ icon_alert | icon(20) }}</span>
+                            <span>Failed to load release info. Try again later.</span>
+                        </div>
+
+                        <div class="download-release__body" data-download-body hidden>
+                            <div class="download-release__field">
+                                <span class="download-release__field-label">File</span>
+                                <span class="download-release__field-value" data-download-tarball></span>
+                            </div>
+
+                            <div class="download-release__field">
+                                <span class="download-release__field-label">Checksum</span>
+                                <span class="download-release__field-value" data-download-b3sum></span>
+                            </div>
+                        </div>
+
+                        <div class="download-release__actions" data-download-actions hidden>
+                            <a href="#" class="btn btn--primary btn--lg download-release__btn" data-download-tarball-link target="_blank" rel="noopener noreferrer">
+                                <span>Download Tarball</span>
+                            </a>
+
+                            <a href="#" class="btn btn--ghost download-release__btn" data-download-b3sum-link target="_blank" rel="noopener noreferrer">
+                                <span>B3sum Checksum</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="download-warning">
+                        <div class="download-warning__icon">{{ icon_alert | icon(20) }}</div>
+                        <p>{{ warning }}</p>
+                    </div>
                 </div>
-            </div>
+            {% endif %}
         </div>
     </div>
 </section>
