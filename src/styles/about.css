@@ -169,6 +169,10 @@
     color: #4fb37c;
 }
 
+.terminal__body > span {
+    white-space: nowrap;
+}
+
 .cta {
     display: flex;
     flex-direction: column;
