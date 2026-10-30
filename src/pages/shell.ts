@@ -5,7 +5,7 @@ import {
 import {
     navLinks,
     logoUrl,
-    footerLinks
+    sourceLinks
 } from "../data/site";
 
 export interface ShellOptions {
@@ -19,7 +19,7 @@ export function renderShell(opts: ShellOptions): string {
         currentPath: opts.currentPath,
         navLinks,
         logoUrl,
-        footerLinks,
+        sourceLinks,
         year: new Date().getFullYear()
     });
 }

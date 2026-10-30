@@ -1,11 +1,10 @@
 @import "variables.css";
 @import "base.css";
-@import "components.css";
 @import "layout.css";
+@import "components.css";
 @import "home.css";
 @import "about.css";
-@import "developers.css";
-@import "pages.css";
+@import "download.css";
+@import "development.css";
 @import "notFound.css";
 @import "scrollTop.css";
-@import "responsive.css";

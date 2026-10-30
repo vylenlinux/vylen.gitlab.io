@@ -1,39 +1,19 @@
 <footer class="footer">
     <div class="container footer__inner">
-        <div class="footer__brand">
-            <img src="{{ logoUrl }}" alt="Vylen Linux" class="footer__logo" width="48" height="48" />
+        <nav class="footer__links" aria-label="Footer navigation">
+            {% for link in navLinks %}
+                {% if link.external %}
+                    <a href="{{ link.path }}" class="footer__link" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>
+                {% else %}
+                    <a href="#{{ link.path }}" class="footer__link">{{ link.label }}</a>
+                {% endif %}
+            {% endfor %}
 
-            <div class="footer__brand-text">
-                <span class="footer__name">Vylen Linux</span>
-                <span class="footer__tagline">Independent. Built by you.</span>
-            </div>
-        </div>
-
-        <nav class="footer__nav" aria-label="Footer">
-            <ul class="footer__nav-list">
-                {% for link in navLinks %}
-                    <li>
-                        {% if link.external %}
-                            <a href="{{ link.path }}" class="footer__nav-link" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>
-                        {% else %}
-                            <a href="#{{ link.path }}" class="footer__nav-link">{{ link.label }}</a>
-                        {% endif %}
-                    </li>
-                {% endfor %}
-            </ul>
+            {% for link in sourceLinks %}
+                <a href="{{ link.path }}" class="footer__link" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>
+            {% endfor %}
         </nav>
 
-        <div class="footer__links">
-            {% for link in footerLinks %}
-                <a href="{{ link.href }}" class="footer__link" target="_blank" rel="noopener noreferrer" aria-label="{{ link.label }}">{{ link.icon | icon(18) }}</a>
-            {% endfor %}
-        </div>
-    </div>
-
-    <div class="footer__bottom">
-        <div class="container footer__bottom-inner">
-            <span class="footer__copyright">© {{ year }} Vylen Linux. Independent by design.</span>
-            <span class="footer__license">Open source under the GPL license.</span>
-        </div>
+        <p class="footer__copy">&copy; {{ year }} Vylen Linux</p>
     </div>
 </footer>

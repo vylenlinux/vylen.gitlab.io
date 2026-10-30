@@ -1,54 +1,36 @@
-<section class="hero">
-    <div class="container hero__inner">
-        <span class="hero__badge">
-            <span class="hero__badge-dot"></span>
-            {{ hero.badge }}
-        </span>
-
-        <h1 class="hero__title">
-            {{ hero.title }}
-            <span class="hero__highlight">{{ hero.highlight }}</span>
-        </h1>
-
-        <p class="hero__subtitle">{{ hero.subtitle }}</p>
-    </div>
-
-    <div class="hero__glow"></div>
-    <div class="hero__grid"></div>
-</section>
-
-<section class="about-intro">
+<section class="page-head">
     <div class="container">
-        <div class="about-intro__content">
-            <p class="about-intro__lead">
-                Vylen Linux is an independent, source-based distribution. It ships its own package manager —
-                <strong>Emerald</strong> — and public ports repositories. Ports can be built from source on the user's machine;
-                the bootstrap rootfs is distributed separately as a prebuilt base.
-            </p>
-
-            <p class="about-intro__text">
-                The current rootfs release targets x86_64. There are no ISO images in the current release metadata — Vylen provides
-                a <strong>stage3-style rootfs tarball</strong> containing a prebuilt base for bootstrapping a system.
-            </p>
-
-            <p class="about-intro__text">
-                It is built for experienced users who want to construct their system by hand and keep control over its
-                configuration. Vylen uses <strong>OpenRC</strong> instead of systemd, and Emerald manages the port build workflow.
-            </p>
-        </div>
+        <h1 class="page-head__title">About Vylen Linux</h1>
+        <p class="page-head__lead">
+            An independent, source-based Linux distribution with its own package manager.
+        </p>
     </div>
 </section>
 
-<section class="features">
+<section class="section">
+    <div class="container about-intro">
+        <p class="about-intro__lead">
+            Vylen Linux is an independent, source-based distribution. It ships its own package manager,
+            <strong>Emerald</strong>, and public ports repositories. Ports are built from source on the user's machine;
+            the bootstrap rootfs is distributed separately as a prebuilt base.
+        </p>
+
+        <p class="about-intro__text">
+            It is built for experienced users who want to construct their system by hand and keep control over its
+            configuration. Vylen uses <strong>systemd</strong> as its init system, and Emerald manages the port build workflow.
+        </p>
+    </div>
+</section>
+
+<section class="section">
     <div class="container">
         <div class="section-head">
             <span class="section-head__eyebrow">At a glance</span>
-            <h2 class="section-head__title">Key characteristics</h2>
-
+            <h2 class="section-title">Key characteristics</h2>
             <p class="section-head__subtitle">The core traits that define how Vylen works.</p>
         </div>
 
-        <div class="features__grid features__grid--about">
+        <div class="features">
             {% for item in highlights %}
                 <article class="feature-card">
                     <div class="feature-card__icon">{{ item.icon | icon(20) }}</div>
@@ -61,87 +43,81 @@
     </div>
 </section>
 
-<section class="philosophy">
+<section class="section">
     <div class="container">
         <div class="section-head">
             <span class="section-head__eyebrow">Principles</span>
-            <h2 class="section-head__title">What Vylen stands for</h2>
-
+            <h2 class="section-title">What Vylen stands for</h2>
             <p class="section-head__subtitle">The design choices that guide every decision in the distribution.</p>
         </div>
 
-        <div class="philosophy__grid philosophy__grid--about">
+        <div class="principles">
             {% for principle in principles %}
-                <div class="philosophy__card">
-                    <div class="philosophy__number">{{ loop.index | padNumber }}</div>
-                    <h3 class="philosophy__title">{{ principle.title }}</h3>
-
-                    <p class="philosophy__text">{{ principle.text }}</p>
-                </div>
+                <article class="principle">
+                    <span class="principle__number">{{ loop.index | padNumber }}</span>
+                    <h3 class="principle__title">{{ principle.title }}</h3>
+                    <p class="principle__text">{{ principle.text }}</p>
+                </article>
             {% endfor %}
         </div>
     </div>
 </section>
 
-<section class="terminal-showcase">
-    <div class="container">
-        <div class="terminal-showcase__inner">
-            <div class="terminal-showcase__content">
-                <span class="section-head__eyebrow">Emerald</span>
-                <h2 class="terminal-showcase__title">A source-based package manager</h2>
+<section class="section">
+    <div class="container emerald">
+        <div class="emerald__content">
+            <span class="section-head__eyebrow">Emerald</span>
+            <h2 class="section-title">A source-based package manager</h2>
 
-                <p class="terminal-showcase__text">
-                    Emerald handles dependency resolution, source fetching, checksums, compilation, and installation. Creating
-                    custom ports and repositories is straightforward — the build template resembles PKGBUILD from Arch Linux and
-                    CRUX, but is written entirely in POSIX shell.
-                </p>
+            <p class="section-text">
+                Emerald handles dependency resolution, source fetching, checksums, compilation, and installation. Creating
+                custom ports and repositories is straightforward. The build template resembles PKGBUILD from Arch Linux and
+                CRUX, but is written entirely in POSIX shell.
+            </p>
 
-                <ul class="terminal-showcase__list">
-                    <li>Dependency-aware builds from source</li>
-                    <li>POSIX shell build templates (CRUX-like)</li>
-                    <li>Custom build flags per package</li>
-                    <li>System-wide upgrades in one command</li>
-                </ul>
+            <ul class="check-list">
+                <li>Dependency-aware builds from source</li>
+                <li>POSIX shell build templates (CRUX-like)</li>
+                <li>Custom build flags per package</li>
+                <li>System-wide upgrades in one command</li>
+            </ul>
+        </div>
+
+        <div class="terminal">
+            <div class="terminal__bar">
+                <span class="terminal__dot terminal__dot--red"></span>
+                <span class="terminal__dot terminal__dot--yellow"></span>
+                <span class="terminal__dot terminal__dot--green"></span>
+
+                <span class="terminal__title">~ : fish</span>
             </div>
 
-            <div class="terminal">
-                <div class="terminal__bar">
-                    <span class="terminal__dot terminal__dot--red"></span>
-                    <span class="terminal__dot terminal__dot--yellow"></span>
-                    <span class="terminal__dot terminal__dot--green"></span>
-
-                    <span class="terminal__title">~ : fish — Konsole</span>
-                </div>
-
-                <pre class="terminal__body">
-                    <span class="terminal__prompt">root@vylen $</span> emerald install vivaldi -q
-                    <span>==> Building: vivaldi-8.1.4087.56-1</span>
-                    <span>==> Source found: /var/cache/emerald/sources/vivaldi-8.1.4087.56.rpm</span>
-                    <span>==> Checking checksums...</span>
-                    <span>==> Unpacking: /var/cache/emerald/sources/vivaldi-8.1.4087.56.rpm</span>
-                    <span>==> Preparing: /usr/ports/extra/vivaldi/0001-add-support-for-user-flags.patch</span>
-                    <span>==> Build start: vivaldi-8.1.4087.56-1</span>
-                    <span>==> Build success: vivaldi-8.1.4087.56-1</span>
-                    <span>==> Packaging success: vivaldi-8.1.4087.56-1.epkg.tar.xz (132M)</span>
-                    <span>install: vivaldi-8.1.4087.56-1...</span>
-                    <span class="terminal__ok">==></span> Updating desktop file MIME type cache...
-                    <span class="terminal__ok">==></span> Updating icon theme caches...
-                    <span class="terminal__prompt">root@vylen $</span>
-                </pre>
-            </div>
+            <pre class="terminal__body">
+                <span class="terminal__prompt">root@vylen $</span> emerald install vivaldi -q</span>
+                <span>==> Building: vivaldi-8.1.4087.56-1</span>
+                <span>==> Source found: /var/cache/emerald/sources/vivaldi-8.1.4087.56.rpm</span>
+                <span>==> Checking checksums...</span>
+                <span>==> Unpacking: /var/cache/emerald/sources/vivaldi-8.1.4087.56.rpm</span>
+                <span>==> Preparing: /usr/ports/extra/vivaldi/0001-add-support-for-user-flags.patch</span>
+                <span>==> Build start: vivaldi-8.1.4087.56-1</span>
+                <span>==> Build success: vivaldi-8.1.4087.56-1</span>
+                <span>==> Packaging success: vivaldi-8.1.4087.56-1.epkg.tar.xz (132M)</span>
+                <span>install: vivaldi-8.1.4087.56-1...</span>
+                <span class="terminal__ok">==></span> Updating desktop file MIME type cache...</span>
+                <span class="terminal__ok">==></span> Updating icon theme caches...</span>
+                <span class="terminal__prompt">root@vylen $</span>
+            </pre>
         </div>
     </div>
 </section>
 
-<section class="cta-band">
-    <div class="container cta-band__inner">
-        <div class="cta-band__content">
-            <h2 class="cta-band__title">Ready to take control?</h2>
-            <p class="cta-band__subtitle">Grab the stage3 tarball and build a system that's truly yours.</p>
+<section class="section">
+    <div class="container cta">
+        <div class="cta__content">
+            <h2 class="cta__title">Ready to take control?</h2>
+            <p class="cta__subtitle">Grab the rootfs tarball and build a system that's truly yours.</p>
         </div>
 
-        <a href="#/download" class="btn btn--primary btn--lg">
-            <span>Download Vylen</span>
-        </a>
+        <a href="#/download" class="btn btn--primary btn--lg">Download Vylen</a>
     </div>
 </section>

@@ -35,9 +35,8 @@ import {
 } from "./pages/notFound";
 
 import {
-    renderDevelopers,
-    mountDevelopers
-} from "./pages/developers";
+    renderDevelopment
+} from "./pages/development";
 
 const root: HTMLElement | null = document.getElementById("app");
 if (!root) throw new Error("Root element #app not found");
@@ -62,10 +61,9 @@ const routes: Route[] = [
     },
 
     {
-        path: "/developers",
-        title: "Developers",
-        render: renderDevelopers,
-        mount: mountDevelopers
+        path: "/development",
+        title: "Development",
+        render: renderDevelopment
     }
 ];
 

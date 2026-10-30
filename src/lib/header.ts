@@ -63,9 +63,6 @@ export function initHeader(): void {
         link.addEventListener("click", closeMobileNav);
     });
 
-    const mobileCta: HTMLAnchorElement | null = document.querySelector<HTMLAnchorElement>(".header__mobile-cta");
-    mobileCta?.addEventListener("click", closeMobileNav);
-
     document.addEventListener("click", (event: MouseEvent): void => {
         if (!mobileNav?.classList.contains("header__mobile-nav--open")) return;
 

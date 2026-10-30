@@ -1,7 +1,7 @@
 <header class="header" data-header>
     <div class="container header__inner">
         <a href="#/" class="header__brand">
-            Vylen<span class="header__brand-accent">Linux</span>
+            <span>Vylen Linux</span>
         </a>
 
         <nav class="header__nav" aria-label="Primary">
@@ -11,7 +11,7 @@
                         {% if link.external %}
                             <a href="{{ link.path }}" class="header__nav-link" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>
                         {% else %}
-                            <a href="#{{ link.path }}" class="header__nav-link{% if link.path === currentPath %} header__nav-link--active{% endif %}">{{ link.label }}</a>
+                            <a href="#{{ link.path }}" class="header__nav-link{% if link.path === currentPath %} header__nav-link--active{% endif %}"{% if link.path === currentPath %} aria-current="page"{% endif %}>{{ link.label }}</a>
                         {% endif %}
                     </li>
                 {% endfor %}
@@ -19,11 +19,11 @@
         </nav>
 
         <div class="header__actions">
-            <button class="header__theme-toggle" data-theme-toggle aria-label="Toggle theme">
+            <button class="icon-button" data-theme-toggle aria-label="Switch color theme">
                 <span data-theme-icon></span>
             </button>
 
-            <button class="header__menu-toggle" data-menu-toggle aria-label="Toggle menu" aria-expanded="false">
+            <button class="icon-button header__menu-toggle" data-menu-toggle aria-label="Toggle menu" aria-expanded="false">
                 <span data-menu-icon></span>
             </button>
         </div>

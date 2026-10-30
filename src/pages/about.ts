@@ -3,10 +3,7 @@ import {
 } from "../lib/template";
 
 import {
-    aboutHighlights
-} from "../data/features";
-
-import {
+    highlights,
     principles
 } from "../data/about";
 
@@ -16,15 +13,8 @@ import {
 
 export function renderAbout(currentPath: string): string {
     const content: string = render("pages/about.njk", {
-        highlights: aboutHighlights,
-        principles,
-
-        hero: {
-            badge: "About the distribution",
-            title: "A distro built by you,",
-            highlight: "for you.",
-            subtitle: "Vylen Linux is an independent, source-based distribution with a minimal rootfs and a source-oriented package workflow."
-        }
+        highlights,
+        principles
     });
 
     return renderShell({

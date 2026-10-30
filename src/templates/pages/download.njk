@@ -1,110 +1,73 @@
 <section class="page-head">
     <div class="container">
-        <span class="section-head__eyebrow">Download</span>
-        <h1 class="page-head__title">{{ title }}</h1>
-
-        <p class="page-head__subtitle">{{ subtitle }}</p>
+        <h1 class="page-head__title">Download</h1>
+        <p class="page-head__lead">
+The rootfs is the base system archive. It contains a minimal system, with no installer and no desktop environment.
+        </p>
     </div>
 </section>
 
-<section class="download-main">
+<section class="release-section">
     <div class="container">
-        <div class="download-grid">
-            {% if false %}
-                <div class="download-release">
-                    <div class="download-release__card">
-                        <div class="download-release__error">
-                            <span>{{ icon_alert | icon(20) }}</span>
-                            <span>We found an issue with the current archive. A new archive will be available soon. Please check back later.</span>
-                        </div>
-                    </div>
+        <div class="release">
+            <div class="release__status" data-release-loading></div>
+            <div class="release__status release__status--error" data-release-error hidden></div>
+
+            <div class="release__content" data-release-content hidden>
+                <div class="release__info">
+                    <span class="release__eyebrow">Latest release</span>
+                    <p class="release__date" data-release-date></p>
+                    <p class="release__file" data-release-file></p>
                 </div>
-            {% else %}
-                <div class="download-release">
-                    <div class="download-release__card" data-download-card>
-                        <div class="download-release__header" data-download-header hidden>
-                            <div class="download-release__icon">{{ icon_package | icon(28) }}</div>
 
-                            <div class="download-release__info">
-                                <h2 class="download-release__title">Stage3 Tarball</h2>
-                                <span class="download-release__date" data-download-date></span>
-                            </div>
-                        </div>
-
-                        <div class="download-release__placeholder" data-download-loading>
-                            <span class="spin">{{ icon_loader | icon(20) }}</span>
-                            <span>Loading release info…</span>
-                        </div>
-
-                        <div class="download-release__error" data-download-error hidden>
-                            <span>{{ icon_alert | icon(20) }}</span>
-                            <span>Failed to load release info. Try again later.</span>
-                        </div>
-
-                        <div class="download-release__body" data-download-body hidden>
-                            <div class="download-release__field">
-                                <span class="download-release__field-label">File</span>
-                                <span class="download-release__field-value" data-download-tarball></span>
-                            </div>
-
-                            <div class="download-release__field">
-                                <span class="download-release__field-label">Checksum</span>
-                                <span class="download-release__field-value" data-download-b3sum></span>
-                            </div>
-                        </div>
-
-                        <div class="download-release__actions" data-download-actions hidden>
-                            <a href="#" class="btn btn--primary btn--lg download-release__btn" data-download-tarball-link target="_blank" rel="noopener noreferrer">
-                                <span>Download Tarball</span>
-                            </a>
-
-                            <a href="#" class="btn btn--ghost download-release__btn" data-download-b3sum-link target="_blank" rel="noopener noreferrer">
-                                <span>B3sum Checksum</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="download-warning">
-                        <div class="download-warning__icon">{{ icon_alert | icon(20) }}</div>
-                        <p>{{ warning }}</p>
-                    </div>
+                <div class="release__actions">
+                    <a href="#" class="btn btn--primary btn--lg" data-release-archive target="_blank" rel="noopener noreferrer"></a>
+                    <a href="#" class="btn btn--ghost btn--lg" data-release-checksum target="_blank" rel="noopener noreferrer"></a>
                 </div>
-            {% endif %}
+            </div>
         </div>
     </div>
 </section>
 
-<section class="requirements">
+<section class="section">
     <div class="container">
         <div class="section-head">
-            <span class="section-head__eyebrow">Requirements</span>
-            <h2 class="section-head__title">System Requirements</h2>
-
-            <p class="section-head__subtitle">Two tiers — minimum specs to bootstrap, and recommended specs for comfortable builds.</p>
+            <h2 class="section-title">Verify the archive</h2>
+            <p class="section-text">
+Check each archive against its BLAKE3 checksum before unpacking. A failed check means the file is damaged or changed.
+            </p>
         </div>
 
-        <div class="requirements__tiers">
-            {% for tier in requirementTiers %}
-                <div class="req-tier">
-                    <div class="req-tier__head">
-                        <h3 class="req-tier__title">{{ tier.title }}</h3>
-                        <p class="req-tier__subtitle">{{ tier.subtitle }}</p>
-                    </div>
-
-                    <div class="req-tier__items">
-                        {% for req in tier.items %}
-                            <div class="req-card">
-                                <div class="req-card__icon">{{ req.icon | icon(18) }}</div>
-
-                                <div class="req-card__text">
-                                    <span class="req-card__label">{{ req.label }}</span>
-                                    <span class="req-card__value">{{ req.value }}</span>
-                                </div>
-                            </div>
-                        {% endfor %}
-                    </div>
+        <ol class="procedure">
+            <li class="procedure__item">
+                <span class="procedure__number">1</span>
+                <div class="procedure__body">
+                    <h3 class="procedure__title">Download both files</h3>
+                    <p class="procedure__text">Keep the archive and its <code>.b3sum</code> file in the same directory.</p>
                 </div>
-            {% endfor %}
+            </li>
+
+            <li class="procedure__item">
+                <span class="procedure__number">2</span>
+                <div class="procedure__body">
+                    <h3 class="procedure__title">Run the check</h3>
+                    <p class="procedure__text">Run this in that directory. OK next to the archive name means the check passed.</p>
+                    <pre class="code"><code>b3sum -c vylen-rootfs-x86_64_&lt;date&gt;.tar.xz.b3sum</code></pre>
+                </div>
+            </li>
+        </ol>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-head">
+            <h2 class="section-title">Unpack the archive</h2>
+            <p class="section-text">
+Extract as root into an empty directory. The <code>-p</code> option keeps the permissions stored in the archive.
+            </p>
         </div>
+
+        <pre class="code"><code>tar -xpf vylen-rootfs-x86_64_&lt;date&gt;.tar.xz -C /mnt/vylen</code></pre>
     </div>
 </section>

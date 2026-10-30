@@ -1,19 +1,7 @@
-<div class="app-shell">
+<div class="app">
     {% include "partials/header.njk" %}
 
-    {% if true %}
-        <div class="header__notice" role="status" aria-label="notice">
-            <div class="container header__notice-inner">
-                <span class="header__notice-dot" aria-hidden="true"></span>
-
-                <span>
-                    <strong>Vylen Linux has completed its migration to systemd.</strong>
-                </span>
-            </div>
-        </div>
-    {% endif %}
-
-    <main id="main-content" class="main">
+    <main id="main" class="main">
         {{ content | safe }}
     </main>
 
