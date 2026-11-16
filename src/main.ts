@@ -38,10 +38,6 @@ import {
     renderDevelopment
 } from "./pages/development";
 
-import {
-    handleSourcePermalink
-} from "./lib/sourcePermalink";
-
 const root: HTMLElement | null = document.getElementById("app");
 if (!root) throw new Error("Root element #app not found");
 
@@ -88,4 +84,4 @@ const router: Router = new Router({
 initTheme();
 initScrollTop();
 
-if (!handleSourcePermalink(root)) router.start();
+router.start();
